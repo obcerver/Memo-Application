@@ -1,0 +1,58 @@
+<!--Add Memo Button-->
+<app-add-memo></app-add-memo>
+
+<!-- Sidenav -->
+<app-sidenav></app-sidenav>
+    
+<!-- Main Body -->
+<div class="main">
+
+  <div *ngIf="memoArray.length === 0" class="emptyMemo">
+    <i class="bi bi-journal-x"><a>   No Available Memo was found</a></i>
+  </div>
+
+  <div *ngFor="let item of memoArray; let i = index">
+
+    <mat-card class="example-card" (dblclick)="openEditForm(item)">
+      
+      <mat-card-header>
+          <mat-card-title class="title">
+            {{item.memoTitle}}
+          </mat-card-title>
+          <mat-card-subtitle class="title">
+              {{item.memoSubTitle}}
+          </mat-card-subtitle>
+      </mat-card-header>
+  
+      <img mat-card-image [src]="convertBase64(item)" alt="Memo Pic Photo">
+      
+      <div class="memoContent">
+        <mat-card-content [innerHTML]="item.memoContent"></mat-card-content>
+      </div>
+
+      <hr>
+  
+      <mat-card-footer class="footer">
+          Published on: {{item.memoPublishDate}}
+          <br>
+          <i>Double click to edit</i>
+          <br>
+          <button mat-icon-button #tooltip="matTooltip"
+                  matTooltip="Delete Memo"
+                  matTooltipPosition="above" 
+                  (click)="deleteMemo(item)" 
+                  class="delete">
+            <i class="bi bi-trash2-fill"></i>
+          </button>
+      </mat-card-footer>
+
+    </mat-card>
+    
+  </div>
+</div>
+
+
+
+
+
+

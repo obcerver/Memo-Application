@@ -1,0 +1,74 @@
+<div class="flex">
+    <mat-card class="example-card">
+        
+        <mat-card-header>
+            <mat-card-title class="title">
+                {{addMemoForm.get('memoTitle').value}}
+            </mat-card-title>
+            <mat-card-subtitle class="title">
+                {{addMemoForm.get('memoSubTitle').value}}
+            </mat-card-subtitle>
+        </mat-card-header>
+    
+        <img mat-card-image [src]="imageURL" alt="Memo Pic Photo">
+        
+        <div class="memoContent">
+            <mat-card-content [innerHTML]="addMemoForm.get('memoContent').value"></mat-card-content>
+        </div>
+
+        <hr>
+    
+        <mat-card-footer class="footer">
+            Published on: {{addMemoForm.get('memoPublishDate').value}}
+        </mat-card-footer>
+    </mat-card>
+</div>
+
+<div class="flex">
+    <form [formGroup]='addMemoForm' (ngSubmit)="onSubmit()">
+
+        <h1 style="font-family: 'Fredoka One', cursive;">Memo Form</h1>
+
+        <mat-form-field appearance="outline" class="inputText">
+            <mat-label>Title</mat-label>
+            <input matInput formControlName='memoTitle'>
+        </mat-form-field>
+        
+        <mat-form-field appearance="outline" class="inputText" style="margin-left: 20px;">
+            <mat-label>Sub-Title</mat-label>
+            <input matInput formControlName='memoSubTitle'>
+        </mat-form-field>
+        <br>
+        
+        <div>
+            <label>Picture</label>
+            <input type="file" class="form-control" accept="image/*" (change)="selectImg($event)">
+        </div>
+        <br>
+        
+        <mat-form-field appearance="outline" class="datetime">
+            <mat-label>Choose Display Date</mat-label>
+            <input matInput [matDatepicker]="picker" [min]="minDate" (dateChange)="getDate(memoDate.value)" #memoDate>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        
+        <div>
+            <label>Status</label><br>
+            <mat-slide-toggle (change)="displayStatus()" color="primary" formControlName='memoDisplayStatus' class="status">
+                {{status}}
+            </mat-slide-toggle>
+        </div>
+
+        <button mat-raised-button type="submit" color="primary" [disabled]="addMemoForm.invalid">Add Memo</button> 
+    </form>
+</div>
+
+<div class="flex">
+    <form [formGroup]='addMemoForm'>
+        <div class="quillEditor">
+            <label>Content</label>
+            <quill-editor formControlName='memoContent'></quill-editor>
+        </div>
+    </form>
+</div>

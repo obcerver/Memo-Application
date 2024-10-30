@@ -1,0 +1,85 @@
+.main {
+    margin-top: 7vh;
+    margin-left: 20vw; /* Same as the width of the sidebar */
+}
+
+.example-card {
+    width: 19vw;
+    height: 80vh;
+    border-radius: 12px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    float: left;
+    margin: 30px;
+
+    transition: box-shadow 1s;
+
+    a{
+        text-align: right;
+    }
+    
+    .title{
+        word-wrap: break-word;
+        width: 16vw;
+    }
+
+    .memoContent
+    {   
+        word-wrap: break-word;
+        width: 17vw;
+        height: 20vh;
+        
+        overflow-y: scroll;
+    }
+
+    ::-webkit-scrollbar {
+        background: transparent;  /* Optional: just make scrollbar invisible */
+    }
+
+    .footer{
+        margin: 1px;
+        color: gray;
+    }
+
+    img{
+        width: 19vw;
+        height: 30vh;
+    }
+}
+
+.example-card:hover{
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+}
+
+.emptyMemo{
+    text-align: center;
+    color: #6c2cb4;
+
+    a{
+        font-size: 50px;
+        font-family: 'Fredoka One', cursive;
+        font-style: normal;
+    }
+    
+    i{  
+        line-height: 8;
+        font-size: 70px;
+        padding: 40px;
+    }
+}
+
+.delete{
+    background-color: red;
+    color: white;
+
+    transition: background-color 0.5s, color 0.5s, font-size 0.5s;
+
+    top: -2.5vh;
+    right: -1.3vw;
+    position: absolute;
+}
+
+.delete:hover{
+    background-color: white;
+    color: red;
+    font-size: 20px;
+}

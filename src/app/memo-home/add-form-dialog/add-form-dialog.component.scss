@@ -1,0 +1,81 @@
+.flex{
+    display: flex;
+    float: left;
+    margin: 30px;
+    margin-bottom: 60px;
+}
+
+.footer{
+    margin: 1px;
+    color: gray;
+}
+
+input[type="file"] {
+    width: 21vw;
+}
+
+.datetime {
+    width: 21vw;
+}
+
+.inputText {
+    width: 10vw;
+}
+
+.example-card {
+    width: 20vw;
+    border-radius: 12px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    float: left;
+    margin: 30px;
+    transition: box-shadow 1s;
+
+    a{
+        text-align: right;
+    }
+
+    .title{
+        word-wrap: break-word;
+        width: 16vw;
+    }
+    
+    img{
+        height: 14vw;
+        width: 20vw;
+    }
+
+    ::-webkit-scrollbar {
+        background: transparent;  /* Optional: just make scrollbar invisible */
+    }
+
+
+    .memoContent
+    {   
+        word-wrap: break-word;
+        width: 17vw;
+        height: 20vh;
+        
+        overflow-y: scroll;
+    }
+
+    img{
+        width: 20vw;
+        height: 33vh;
+    }
+}
+
+.example-card:hover{
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+}
+
+button{
+    text-align: center;
+    font-family: 'Fredoka One', cursive;
+    margin-top: 10px;
+}
+
+.quillEditor{
+    width: 22vw;
+    height: 30vh;
+    margin-top: 30px;
+}

@@ -1,0 +1,64 @@
+.sidenav {
+    height: 100%; /* Full-height: remove this if you want "auto" height */
+    width: 17vw; /* Set the width of the sidebar */
+
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+
+    background-color: #6c2cb4; 
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 13vh;
+
+    a{  
+        font-family: 'Fredoka One', cursive;
+        padding: 10px;
+        margin-left: 30px;
+        text-decoration: none;
+        font-size: 23px;
+        color: white;
+        display: block;
+        transition: color 0.5s;
+        transition: background-color 0.5s;
+        cursor: pointer;
+    }
+
+    .logo{
+        i{
+            margin-left: 40px;
+            font-size: 40px;
+            color: white;
+        }
+    
+        p{  
+            color: white;
+            font-size: 40px;
+            font-family: 'Fredoka One', cursive;
+        }
+    }
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+    border-radius: 20px 0px 0px 20px;
+    background-color: white;
+    color: #6c2cb4;
+}
+
+.sidenav a:active {
+    border-radius: 20px 0px 0px 20px;
+    background-color: white;
+    color: #6c2cb4;
+}
+
+.sidenav a::after {
+    border-radius: 20px 0px 0px 20px;
+    background-color: white;
+    color: #6c2cb4;
+}
+
+.main {
+    margin-top: vh;
+    margin-left: 20vw; /* Same as the width of the sidebar */
+}

@@ -1,0 +1,56 @@
+<div class="flex">
+    <form [formGroup]='editMemoForm' (ngSubmit)="onSubmit()">
+
+        <mat-card class="example-card">
+                
+            <mat-card-header>
+    
+                <mat-card-title>
+                    <mat-form-field appearance="outline" class="inputText">
+                        <mat-label>Title</mat-label>
+                        <input matInput formControlName='memoTitle'>
+                    </mat-form-field>
+                </mat-card-title>
+    
+                <mat-card-subtitle>
+                    <mat-form-field appearance="outline" class="inputText">
+                        <mat-label>Sub-Title</mat-label>
+                        <input matInput formControlName='memoSubTitle'>
+                    </mat-form-field>
+                </mat-card-subtitle>
+    
+            </mat-card-header>
+            
+            <input type="file" class="form-control" accept="image/*" (change)="selectImg($event)" #file>
+            <div *ngIf="previewPic === false; else formPic">
+                <img mat-card-image [src]="convertBase64()" alt="Memo Pic Photo" (click)="file.click()">
+            </div>
+
+            <ng-template #formPic>
+                <img mat-card-image [src]="imageURL" alt="Memo Pic Photo" (click)="file.click()">
+            </ng-template>
+            
+            <div class="memoContent">
+                <div class="quillEditor">
+                    <quill-editor formControlName='memoContent'></quill-editor>
+                </div>
+            </div>
+    
+            <hr>
+    
+            <mat-card-footer class="footer">
+                Published on: {{data.memo.memoPublishDate}}
+                <br>
+
+                <button mat-raised-button type="submit" color="primary" [disabled]="editMemoForm.invalid">
+                    <i class="bi bi-pencil-square"></i>Edit Memo
+                </button>
+
+            </mat-card-footer>
+    
+        </mat-card>
+
+        <br> 
+            
+    </form>
+</div>

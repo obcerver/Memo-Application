@@ -1,0 +1,84 @@
+.main {
+    margin-top: 7vh;
+    margin-left: 20vw; /* Same as the width of the sidebar */
+}
+
+table{
+    width: 70vw;
+
+    border-collapse: collapse;
+    border-radius: 15px;
+    overflow: hidden;
+
+    td, th{
+        padding: 20px;
+        color: whitesmoke;
+        margin-top: 10px;
+    }
+
+    tbody{
+        td, th{
+            padding: 20px;
+            background-color: gainsboro;
+            opacity: 01;
+            color: black;
+            margin-top: 10px;
+        }
+    }
+    
+
+    thead{
+        th{
+            background-color: #6c2cb4;
+        }
+    }
+}
+
+button{
+    background-color: transparent;
+    color: #6c2cb4;
+    border: #6c2cb4 1px solid;
+
+    i{
+        font-size: 20px;
+    }
+
+    transition: background-color 0.5s, color 0.5s;
+}
+
+button:hover{
+    background-color: #6c2cb4;
+    color: white;
+}
+
+.delete{
+    margin-left: 20px;
+
+    background-color: transparent;
+    color: red;
+    border: red 1px solid;
+
+    transition: background-color 0.5s, color 0.5s;
+}
+
+.delete:hover{
+    background-color: red;
+    color: white;
+}
+
+.emptyMemo{
+    text-align: center;
+    color: #6c2cb4;
+
+    a{
+        font-size: 50px;
+        font-family: 'Fredoka One', cursive;
+        font-style: normal;
+    }
+    
+    i{  
+        line-height: 8;
+        font-size: 70px;
+        padding: 40px;
+    }
+}

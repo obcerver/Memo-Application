@@ -1,0 +1,54 @@
+<!--Add Memo Button-->
+<app-add-memo></app-add-memo>
+
+<!-- Sidenav -->
+<app-sidenav></app-sidenav>
+
+<!-- Main Body -->
+<div class="main">
+
+    <div *ngIf="memoArray.length === 0; else memoTable" class="emptyMemo">
+        <i class="bi bi-journal-x"><a>   No Available Memo was found</a></i>
+    </div>
+
+    <ng-template #memoTable>
+        <table>
+
+            <thead>
+                <tr>
+                    <th scope="col">Memo Id</th>
+                    <th scope="col">Memo Title</th>
+                    <th scope="col">Display Date</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">&nbsp;</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let item of memoArray; let i =index">
+                    <th scope="row">{{ item.memoId }}</th>
+                    <td>{{ item.memoTitle }}</td>
+                    <td>{{ item.memoDisplayDate }}</td>
+                    <td>{{memoStatus[i]}}</td>
+                    <td>
+                        <button mat-icon-button #tooltip="matTooltip"
+                                matTooltip="Edit"
+                                matTooltipPosition="above"
+                                (click)="editForm(item)">
+                            <i class="bi bi-pencil-square"></i>
+                        </button>
+                        
+                        <button mat-icon-button #tooltip="matTooltip"
+                                matTooltip="Delete"
+                                matTooltipPosition="above"
+                                class="delete"
+                                (click)="deleteMemo(item)">
+                            <i class="bi bi-trash2-fill"></i>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+
+        </table>
+    </ng-template>
+</div>

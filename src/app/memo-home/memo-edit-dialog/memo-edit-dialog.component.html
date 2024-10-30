@@ -1,0 +1,71 @@
+<div class="flex">
+    <form [formGroup]='editMemoForm'>
+
+        <mat-card class="example-card">
+                
+            <mat-card-header>
+    
+                <mat-card-title>
+                    <mat-form-field appearance="outline" class="inputText">
+                        <mat-label>Title</mat-label>
+                        <input matInput formControlName='memoTitle'>
+                    </mat-form-field>
+                </mat-card-title>
+    
+                <mat-card-subtitle>
+                    <mat-form-field appearance="outline" class="inputText">
+                        <mat-label>Sub-Title</mat-label>
+                        <input matInput formControlName='memoSubTitle'>
+                    </mat-form-field>
+                </mat-card-subtitle>
+    
+            </mat-card-header>
+            
+            <input type="file" class="form-control" accept="image/*" (change)="selectImg($event)" #file>
+            <div *ngIf="previewPic === false; else formPic">
+                <img mat-card-image [src]="convertBase64(data.memo)" alt="Memo Pic Photo" (click)="file.click()">
+            </div>
+
+            <ng-template #formPic>
+                <img mat-card-image [src]="imageURL" alt="Memo Pic Photo" (click)="file.click()">
+            </ng-template>
+            
+            <div class="memoContent">
+                <div class="quillEditor">
+                    <quill-editor formControlName='memoContent'></quill-editor>
+                </div>
+            </div>
+    
+            <hr>
+    
+            <mat-card-footer class="footer">
+                Published on: {{data.memo.memoPublishDate}}
+            </mat-card-footer>
+    
+        </mat-card>
+    
+    </form>
+</div>
+
+<div class="flex form">
+    <form [formGroup]='editMemoForm' (ngSubmit)="onSubmit()">
+
+        <mat-form-field appearance="outline" class="datetime">
+            <mat-label>Choose Display Date</mat-label>
+            <input matInput [matDatepicker]="picker" [min]="minDate" formControlName='memoDisplayDate' (dateChange)="getDate(memoDate.value)" #memoDate>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <div>
+            <label>Status</label><br>
+            <mat-slide-toggle (change)="displayStatus()" color="primary" formControlName='memoDisplayStatus' class="status">
+                {{status}}
+            </mat-slide-toggle>
+        </div>
+
+        <button mat-raised-button type="submit" color="primary" [disabled]="editMemoForm.invalid">
+            <i class="bi bi-pencil-square"></i>Edit Memo
+        </button> 
+    </form>
+</div>
